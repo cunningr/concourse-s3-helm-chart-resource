@@ -71,7 +71,7 @@ fi
 
 log "Packaging the chart"
 CHART_ARCHIVE="./$CHART_NAME-$CHART_VERSION.tgz"
-helm package $CHART_DIR --version=$CHART_VERSION --app-version=$CHART_APP_VERSION 1>&2
+helm package $CHART_DIR --version=$CHART_VERSION --app-version=$CHART_APP_VERSION --dependency-update 1>&2
 
 log "Pushing the chart to S3..."
 helm s3 push $CHART_ARCHIVE s3 1>&2
